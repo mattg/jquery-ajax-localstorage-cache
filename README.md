@@ -10,7 +10,7 @@ jquery-ajax-localstorage-cache is a plugin built for jQuery (>1.5.1) and localSt
 		localCache        : true,         // required to use
 		cacheTTL          : 1,            // in hours. Optional
 		cacheKey          : 'post',       // optional
-    preventExpiration : true,         // optional
+                preventExpiration : true,         // optional
 		isCacheValid      : function(){   // optional
 			return true;
 		},
