@@ -1,5 +1,5 @@
 # About 
-jquery-ajax-localstorage-cache is a plugin built for jQuery (>1.5.1) and localStorage. It's a fork of a fork from the [jStorage-dependent original](https://github.com/nectify/jquery-ajax-jstorage-cache). It provides a client-side cache AJAX responses intended to save bandwith and time. 
+jquery-ajax-localstorage-cache is a plugin built for jQuery (>1.5.1) and localStorage. It's a fork of a [fork](https://github.com/paulirish/jquery-ajax-localstorage-cache0 from the [jStorage-dependent original](https://github.com/nectify/jquery-ajax-jstorage-cache). It provides a client-side cache AJAX responses intended to save bandwith and time. 
 
 # How to use 
 
