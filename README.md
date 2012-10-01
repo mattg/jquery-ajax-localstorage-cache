@@ -1,17 +1,17 @@
 # About 
-jquery-ajax-localstorage-cache is a plugin built for jQuery (>1.5.1) and localStorage. It's a fork from the [jStorage-dependent original](https://github.com/nectify/jquery-ajax-jstorage-cache). It provides a client-side cache AJAX responses intended to save bandwith and time. 
+jquery-ajax-localstorage-cache is a plugin built for jQuery (>1.5.1) and localStorage. It's a fork of a fork from the [jStorage-dependent original](https://github.com/nectify/jquery-ajax-jstorage-cache). It provides a client-side cache AJAX responses intended to save bandwith and time. 
 
 # How to use 
 
 ## Parameters
 ```javascript
 	$.ajax({
-		url          : '/post',
-		localCache   : true,        // required to use
-
-		cacheTTL     : 1,           // in hours. Optional
-		cacheKey     : 'post',      // optional
-		isCacheValid : function(){  // optional
+		url               : '/post',
+		localCache        : true,         // required to use
+		cacheTTL          : 1,            // in hours. Optional
+		cacheKey          : 'post',       // optional
+    preventExpiration : true,         // optional
+		isCacheValid      : function(){   // optional
 			return true;
 		},
 
@@ -20,7 +20,7 @@ jquery-ajax-localstorage-cache is a plugin built for jQuery (>1.5.1) and localSt
 		}
 	});
 ```
-On your AJAX request you get 4 new parameters :
+On your AJAX request you get 5 new parameters :
 
 * localCache
 	* Turn localCache on/off
@@ -32,6 +32,9 @@ On your AJAX request you get 4 new parameters :
 * cacheKey
 	* CacheKey is the key that will be used to store the response in localStorage. It allow you to delete your cache easily with the localStorage.removeItem() function.
 	* Default: URL + TYPE(GET/POST) + DATA
+* preventExpiration
+  * Prevents expiration of the data, regardless of the TTL.
+  * Default: false
 * isCacheValid
 	* This function must return true or false. On false, the cached response is removed.
 	* Default: null

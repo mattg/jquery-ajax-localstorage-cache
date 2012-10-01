@@ -9,6 +9,8 @@ $.ajaxPrefilter( function( options, originalOptions, jqXHR ) {
 
   var cacheKey = options.cacheKey || 
                  options.url.replace( /jQuery.*/,'' ) + options.type + options.data;
+
+  var preventExpiration = options.preventExpiration || false;
   
   // isCacheValid is a function to validate cache
   if ( options.isCacheValid &&  ! options.isCacheValid() ){
@@ -16,7 +18,7 @@ $.ajaxPrefilter( function( options, originalOptions, jqXHR ) {
   }
   // if there's a TTL that's expired, flush this item
   var ttl = localStorage.getItem(cacheKey + 'cachettl');
-  if ( ttl && ttl < +new Date() ){
+  if ( preventExpiration === false && ttl && ttl < +new Date() ){
     localStorage.removeItem( cacheKey );
     localStorage.removeItem( cacheKey  + 'cachettl' );
     ttl = 'expired';
