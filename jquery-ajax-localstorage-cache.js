@@ -6,7 +6,7 @@ $.ajaxPrefilter(function(options, originalOptions, jqXHR) {
   if (typeof localStorage === 'undefined' || !options.localCache) { return; }
 
   var hourstl = options.cacheTTL || 5;
-  var cacheKey = options.cacheKey || options.url.replace( /jQuery.*/,'' ) + options.type + options.data;
+  var cacheKey = options.cacheKey || options.url.replace(/jQuery.*/, '') + options.type + options.data;
   var preventExpiration = options.preventExpiration || false;
   
   // isCacheValid is a function to validate cache
