@@ -38,11 +38,13 @@ $.ajaxPrefilter(function(options, originalOptions, jqXHR) {
     }
     options.success = function(data) {
       var strdata = data;
-      if (this.dataType.indexOf('json') === 0) { strdata = JSON.stringify(data); }
-      localStorage.setItem(cacheKey, strdata);
-      // store timestamp
-      if (!ttl || ttl === 'expired') {
-        localStorage.setItem(cacheKey  + 'cachettl', + new Date() + 1000 * 60 * 60 * hourstl);
+      if (!strdata.error) {
+        if (options.dataType.indexOf('json') === 0) { strdata = JSON.stringify(data); }
+        localStorage.setItem(cacheKey, strdata);
+        // store timestamp
+        if (!ttl || ttl === 'expired') {
+          localStorage.setItem(cacheKey  + 'cachettl', + new Date() + 1000 * 60 * 60 * hourstl);
+        }
       }
       if (options.realsuccess) { options.realsuccess(data); }
     };
